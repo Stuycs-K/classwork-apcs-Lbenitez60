@@ -10,7 +10,12 @@ public class MyArrays{
     System.out.println(arrayToString(ary));
   }
   public static int[] returnCopy(int[] ary){
-    return ary;
+    int[] result;
+    result = new int[ary.length];
+    for (int i = 0; i < ary.length; i ++){
+      result[i] = ary[i];
+    }
+    return result;
   }
   public static String arrayToString(int[] nums){
     String result = "[";
