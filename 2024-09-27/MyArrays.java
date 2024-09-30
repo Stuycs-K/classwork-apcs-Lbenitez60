@@ -1,6 +1,8 @@
 public class MyArrays{
   public static void main(String[] args){
+    System.out.println("----------------------");
     System.out.println("Testing for returnCopy");
+    System.out.println("----------------------");
     for (int i = 0; i < 10; i++) {
         int[] ary = {i, i + 1, i + 2};
         int[] ary2 = returnCopy(ary);
@@ -13,6 +15,32 @@ public class MyArrays{
         System.out.println("Array contents are not syncing: " + !arrayToString(ary).equals(arrayToString(ary2)));
         // Print both arrays for visual comparison
         System.out.println("ary: " + arrayToString(ary) + " vs ary2: " + arrayToString(ary2));
+    }
+    System.out.println("-----------------------");
+    System.out.println("Testing for concatArray");
+    System.out.println("-----------------------");
+    for (int i = 0; i < 10; i++) {
+        int[] ary1 = {i, i + 1, i + 2};
+        int[] ary2 = {i + 3, i + 4, i + 5};
+        int[] result = concatArray(ary1, ary2);
+        System.out.println("Correct length: " + (result.length == ary1.length + ary2.length));
+        boolean contentsMatch = true;
+        for (int j = 0; j < ary1.length; j++) {
+            if (result[j] != ary1[j]) {
+                contentsMatch = false;
+                break;
+            }
+        }
+        for (int j = 0; j < ary2.length; j++) {
+            if (result[ary1.length + j] != ary2[j]) {
+                contentsMatch = false;
+                break;
+            }
+        }
+        System.out.println("Array contents match: " + contentsMatch);
+        System.out.println("ary1: " + arrayToString(ary1));
+        System.out.println("ary2: " + arrayToString(ary2));
+        System.out.println("result: " + arrayToString(result));
     }
   }
   public static int[] returnCopy(int[] ary){
