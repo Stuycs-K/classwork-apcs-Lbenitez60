@@ -7,10 +7,10 @@ public class MyArrays{
         // Test if they are the same array (should be false)
         System.out.println("Same array (reference equality): " + (ary == ary2));
         // Test if their contents match (should be true initially)
-        System.out.println("Array contents match: " + Arrays.equals(ary, ary2));
+        System.out.println("Array contents match: " + arrayToString(ary).equals(arrayToString(ary2)));
         // Modify ary and test if the contents still match (should be false after modification)
         ary[0] = ary[0] + 1;
-        System.out.println("Array contents are not syncing: " + !Arrays.equals(ary, ary2));
+        System.out.println("Array contents are not syncing: " + !arrayToString(ary).equals(arrayToString(ary2)));
         // Print both arrays for visual comparison
         System.out.println("ary: " + arrayToString(ary) + " vs ary2: " + arrayToString(ary2));
     }
