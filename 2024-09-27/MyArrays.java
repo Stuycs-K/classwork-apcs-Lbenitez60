@@ -28,13 +28,11 @@ public class MyArrays{
         for (int j = 0; j < ary1.length; j++) {
             if (result[j] != ary1[j]) {
                 contentsMatch = false;
-                break;
             }
         }
         for (int j = 0; j < ary2.length; j++) {
             if (result[ary1.length + j] != ary2[j]) {
                 contentsMatch = false;
-                break;
             }
         }
         System.out.println("Array contents match: " + contentsMatch);
