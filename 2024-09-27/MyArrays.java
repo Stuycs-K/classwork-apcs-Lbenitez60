@@ -1,13 +1,19 @@
 public class MyArrays{
   public static void main(String[] args){
-    System.out.println("placeholder");
-    int[] ary = {1,9,7};
-    // int[] ary2 = returnCopy(ary);
-    // ary[0] = ary[0] + 1;
-    // System.out.println(ary==ary2)
-    // System.out.println(arrayToString(ary).equals(arrayToString(ary2)))
-    // System.out.println(arrayToString(ary) + "vs" + arrayToString(ary2))
-    System.out.println(arrayToString(ary));
+    System.out.println("Testing for returnCopy");
+    for (int i = 0; i < 10; i++) {
+        int[] ary = {i, i + 1, i + 2};
+        int[] ary2 = returnCopy(ary);
+        // Test if they are the same array (should be false)
+        System.out.println("Same array (reference equality): " + (ary == ary2));
+        // Test if their contents match (should be true initially)
+        System.out.println("Array contents match: " + Arrays.equals(ary, ary2));
+        // Modify ary and test if the contents still match (should be false after modification)
+        ary[0] = ary[0] + 1;
+        System.out.println("Array contents are not syncing: " + !Arrays.equals(ary, ary2));
+        // Print both arrays for visual comparison
+        System.out.println("ary: " + arrayToString(ary) + " vs ary2: " + arrayToString(ary2));
+    }
   }
   public static int[] returnCopy(int[] ary){
     int[] result;
