@@ -126,9 +126,9 @@ public class ArrayDemo{
       for (int col = 0; col < nums[row].length; col++){
         result += "<td>" + nums[row][col] + "</td>";
       }
-      result += "</tr>"
+      result += "</tr>";
     }
-    result += "</table>"
+    result += "</table>";
     return result;
   }
 }
