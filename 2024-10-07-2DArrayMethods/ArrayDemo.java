@@ -38,7 +38,15 @@ public class ArrayDemo{
 
   //1. Calculate and return how many elements equal zero in the 2D array.
   public static int countZeros2D(int[][] nums){
-    return 0;
+    int count = 0;
+    // Use nested loops to go through each element in the 2D array
+    for (int i = 0; i < nums.length; i++){
+        for (int j = 0; j < nums[i].length; j++){
+            if (nums[i][j] == 0)
+              count += 1; // Add each element to the sum
+        }
+    }
+    return count;
   }
 
   //2. Calculate the sum of a 2d array
