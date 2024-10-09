@@ -5,7 +5,51 @@ public class ArrayDemo{
     //You can now use Arrays.toString(yourArray) instead of writing arrayToString again.
     //Compare Arrays.toString(yourArray) to YOUR arrayToString() method to make sure yours is correct
     //do not use any other Arrays.method()
-
+    int[] test;
+    int[][] test2D;
+    System.out.println(" Arrays.toString() and arrToString()");
+    System.out.println();
+    test = new int[] {1, 2, -3, 5, 6, 7};
+    System.out.println("Expected: " + Arrays.toString(test) + ", Received: " + arrToString(test));
+    System.out.println();
+    System.out.println(" countZeros2D()");
+    test2D = new int[][] {{0}, {2, 3}, {0, -5, 6, 0}};
+    System.out.println();
+    System.out.println("Expected: 3, Received: " + countZeros2D(test2D));
+    test2D = new int[][] {{1}, {2, 3}, {3, -5, 6, 7}};
+    System.out.println("Expected: 0, Received: " + countZeros2D(test2D));
+    System.out.println();
+    System.out.println(" arr2DSum()");
+    test2D = new int[][] {{0}, {2, 3}, {0, -5, 6, 0}};
+    System.out.println();
+    System.out.println("Expected: 6, Received: " + arr2DSum(test2D));
+    test2D = new int[][] {{1}, {2, 3}, {3, -5, 6, 7}};
+    System.out.println("Expected: 17, Received: " + arr2DSum(test2D));
+    System.out.println();
+    System.out.println("Tests replaceNegative");
+    System.out.println();
+    test2D = new int[][] {{0, 0, 3, 1}, {1, -10, 20, 4, -5}, {-4, -6, 9}};
+    System.out.println("Expected [[0, 0, 3, 1], [1, 1, 20, 4, 0], [0, 0, 9]], Received: " + Arrays.deepToString(replaceNegative(test2D)));
+    System.out.println();
+    System.out.println("Tests copy()");
+    System.out.println();
+    test2D = new int[][] {{0, 0, 3, 1}, {1, -10, 20, 4, -5}, {-4, -6, 9}};
+    int[][] test2DCopy = copy(test2D);
+    System.out.println("Expected [[0, 0, 3, 1], [1, -10, 20, 4, -5], [-4, -6, 9]], Received: " + Arrays.deepToString(test2DCopy));
+    test2D[0][0] = 100;
+    System.out.println("Changed Original: " + Arrays.deepToString(test2D) + ", Copy: " + Arrays.deepToString(test2DCopy));
+    System.out.println();
+    System.out.println("testing swapRC()");
+    System.out.println();
+    test2D = new int[][] {{1, 2},{1, 2},{5, 6}};
+    test2D = new int[][] {{1, -2},{-1, 2},{3, 11}};
+    System.out.println("Expected: [[1, -1, 3], [-2, 2, 11]], Received: " + Arrays.deepToString(swapRC(test2D)));
+    System.out.println();
+    System.out.println("esting htmlTable()");
+    System.out.println();
+    test2D = new int[][]{{1,2},{3}};
+    System.out.println("Expected: <table><tr><td>1</td><td>2</td></tr><tr><td>3</td></tr></table>, Received: " + htmlTable(test2D));
+    System.out.println();
   }
 
   //0. Include your prior methods to help you print a 1D/2D array of ints.
