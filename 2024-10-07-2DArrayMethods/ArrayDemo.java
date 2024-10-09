@@ -1,180 +1,182 @@
 import java.util.Arrays;
-public class ArrayDemo{
-  public static void main(String[]args){
-    //write your tests here!
-    //You can now use Arrays.toString(yourArray) instead of writing arrayToString again.
-    //Compare Arrays.toString(yourArray) to YOUR arrayToString() method to make sure yours is correct
-    //do not use any other Arrays.method()
-    int[] test;
-    int[][] test2D;
-    System.out.println(" Arrays.toString() and arrToString()");
-    System.out.println();
-    test = new int[] {1, 2, -3, 5, 6, 7};
-    System.out.println("Expected: " + Arrays.toString(test) + ", Received: " + arrToString(test));
-    System.out.println();
-    System.out.println(" countZeros2D()");
-    test2D = new int[][] {{0}, {2, 3}, {0, -5, 6, 0}};
-    System.out.println();
-    System.out.println("Expected: 3, Received: " + countZeros2D(test2D));
-    test2D = new int[][] {{1}, {2, 3}, {3, -5, 6, 7}};
-    System.out.println("Expected: 0, Received: " + countZeros2D(test2D));
-    System.out.println();
-    System.out.println(" arr2DSum()");
-    test2D = new int[][] {{0}, {2, 3}, {0, -5, 6, 0}};
-    System.out.println();
-    System.out.println("Expected: 6, Received: " + arr2DSum(test2D));
-    test2D = new int[][] {{1}, {2, 3}, {3, -5, 6, 7}};
-    System.out.println("Expected: 17, Received: " + arr2DSum(test2D));
-    System.out.println();
-    System.out.println("Tests replaceNegative");
-    System.out.println();
-    test2D = new int[][] {{0, 0, 3, 1}, {1, -10, 20, 4, -5}, {-4, -6, 9}};
-    System.out.println("Expected [[0, 0, 3, 1], [1, 1, 20, 4, 0], [0, 0, 9]], Received: " + Arrays.deepToString(replaceNegative(test2D)));
-    System.out.println();
-    System.out.println("Tests copy()");
-    System.out.println();
-    test2D = new int[][] {{0, 0, 3, 1}, {1, -10, 20, 4, -5}, {-4, -6, 9}};
-    int[][] test2DCopy = copy(test2D);
-    System.out.println("Expected [[0, 0, 3, 1], [1, -10, 20, 4, -5], [-4, -6, 9]], Received: " + Arrays.deepToString(test2DCopy));
-    test2D[0][0] = 100;
-    System.out.println("Changed Original: " + Arrays.deepToString(test2D) + ", Copy: " + Arrays.deepToString(test2DCopy));
-    System.out.println();
-    System.out.println("testing swapRC()");
-    System.out.println();
-    test2D = new int[][] {{1, 2},{1, 2},{5, 6}};
-    test2D = new int[][] {{1, -2},{-1, 2},{3, 11}};
-    System.out.println("Expected: [[1, -1, 3], [-2, 2, 11]], Received: " + Arrays.deepToString(swapRC(test2D)));
-    System.out.println();
-    System.out.println("esting htmlTable()");
-    System.out.println();
-    test2D = new int[][]{{1,2},{3}};
-    System.out.println("Expected: <table><tr><td>1</td><td>2</td></tr><tr><td>3</td></tr></table>, Received: " + htmlTable(test2D));
-    System.out.println();
+public class ArrayDemo {
+  public static void main(String[] args) {
+      // 1D and 2D array examples
+      int[] oneDArray = {1, 2, 3, 4, 5};
+      int[][] twoDArray = {
+          {1, 2, 3},
+          {4, 5, 6},
+          {7, 8, 0}
+      };
+
+      int[][] twoDArrayWithNegatives = {
+          {-1, -2, -3},
+          {-4, -5, -6},
+          {-7, -8, 0}
+      };
+
+      int[][] twoDArrayForCopy = {
+          {10, 20, 30},
+          {40, 50, 60}
+      };
+
+      // Test for arrToString (1D array)
+      System.out.println("Testing arrToString (1D array):");
+      String expected1D = "[1, 2, 3, 4, 5]";
+      String result1D = arrToString(oneDArray);
+      System.out.println("expected: " + expected1D + ", got: " + result1D);
+      System.out.println(expected1D.equals(result1D));  // Boolean test case
+
+      // Test for arrToString (2D array)
+      System.out.println("\nTesting arrToString (2D array):");
+      String expected2D = "[[1, 2, 3], [4, 5, 6], [7, 8, 0]]";
+      String result2D = arrToString(twoDArray);
+      System.out.println("expected: " + expected2D + ", got: " + result2D);
+      System.out.println(expected2D.equals(result2D));  // Boolean test case
+
+      // Test for countZeros2D
+      System.out.println("\nTesting countZeros2D:");
+      int expectedCountZeros = 1;
+      int resultCountZeros = countZeros2D(twoDArray);
+      System.out.println("expected: " + expectedCountZeros + ", got: " + resultCountZeros);
+      System.out.println(expectedCountZeros == resultCountZeros);  // Boolean test case
+
+      // Test for arr2DSum
+      System.out.println("\nTesting arr2DSum:");
+      int expectedSum = 36;
+      int resultSum = arr2DSum(twoDArray);
+      System.out.println("expected: " + expectedSum + ", got: " + resultSum);
+      System.out.println(expectedSum == resultSum);  // Boolean test case
+
+      // Test for replaceNegative
+      System.out.println("\nTesting replaceNegative:");
+      String expectedReplaceNegative = "[[1, 0, 0], [0, 1, 0], [0, 0, 0]]";
+      replaceNegative(twoDArrayWithNegatives);
+      String resultReplaceNegative = arrToString(twoDArrayWithNegatives);
+      System.out.println("expected: " + expectedReplaceNegative + ", got: " + resultReplaceNegative);
+      System.out.println(expectedReplaceNegative.equals(resultReplaceNegative));  // Boolean test case
+
+      // Test for copy
+      System.out.println("\nTesting copy:");
+      String expectedCopy = "[[10, 20, 30], [40, 50, 60]]";
+      int[][] copiedArray = copy(twoDArrayForCopy);
+      String resultCopy = arrToString(copiedArray);
+      System.out.println("expected: " + expectedCopy + ", got: " + resultCopy);
+      System.out.println(expectedCopy.equals(resultCopy));  // Boolean test case
+      copiedArray[0][0] = 100; // Modify the copy
+      System.out.println("Modifying copy. Original should not change.");
+      String resultOriginalAfterCopy = arrToString(twoDArrayForCopy);
+      System.out.println("expected: " + expectedCopy + ", got: " + resultOriginalAfterCopy);
+      System.out.println(expectedCopy.equals(resultOriginalAfterCopy));  // Boolean test case to ensure original unchanged
+
+      // Test for swapRC
+      System.out.println("\nTesting swapRC:");
+      String expectedSwapRC = "[[1, 4, 7], [2, 5, 8], [3, 6, 0]]";
+      int[][] swappedArray = swapRC(twoDArray);
+      String resultSwapRC = arrToString(swappedArray);
+      System.out.println("expected: " + expectedSwapRC + ", got: " + resultSwapRC);
+      System.out.println(expectedSwapRC.equals(resultSwapRC));  // Boolean test case
+
+      // Test for htmlTable
+      System.out.println("\nTesting htmlTable:");
+      String expectedHtmlTable = "<table><tr><td>1</td><td>2</td><td>3</td></tr><tr><td>4</td><td>5</td><td>6</td></tr><tr><td>7</td><td>8</td><td>0</td></tr></table>";
+      String resultHtmlTable = htmlTable(twoDArray);
+      System.out.println("expected: " + expectedHtmlTable + ", got: " + resultHtmlTable);
+      System.out.println(expectedHtmlTable.equals(resultHtmlTable));  // Boolean test case
   }
 
-  //0. Include your prior methods to help you print a 1D/2D array of ints.
-  public static String arrToString(int[]ary){
-    String returnedString = "[";
-    for(int i = 0; i < ary.length; i++){
-        if(i < ary.length - 1){
-            returnedString = returnedString + ary[i] + ", ";
+    public static String arrToString(int[] ary) {
+        String returnedString = "[";
+        for (int i = 0; i < ary.length; i++) {
+            if (i < ary.length - 1) {
+                returnedString = returnedString + ary[i] + ", ";
+            } else {
+                returnedString = returnedString + ary[i];
+            }
         }
-        else{
-            returnedString = returnedString + ary[i];
-        }
+        return returnedString + "]";
     }
-    return returnedString + "]";
-  }
 
-  //The name of different methods can be the same,
-  //as long as the parameters are different! (type and/or quantity must be different)
-  //Pro tip: you should be using your 1D arrToString in this method!
-  public static String arrToString(int[][]ary){
-    String result = "[";
-    for(int i = 0; i < ary.length; i++){
-        // Use the arrToString for 1D arrays to handle each row
-        result += arrToString(ary[i]);
-        if (i < ary.length - 1) {
-            result += ", "; // Add comma and space between arrays
+    public static String arrToString(int[][] ary) {
+        String result = "[";
+        for (int i = 0; i < ary.length; i++) {
+            result += arrToString(ary[i]);
+            if (i < ary.length - 1) {
+                result += ", ";
+            }
         }
+        result += "]";
+        return result;
     }
-    result += "]";
-    return result;
-  }
 
-  //1. Calculate and return how many elements equal zero in the 2D array.
-  public static int countZeros2D(int[][] nums){
-    int count = 0;
-    // Use nested loops to go through each element in the 2D array
-    for (int i = 0; i < nums.length; i++){
-        for (int j = 0; j < nums[i].length; j++){
-            if (nums[i][j] == 0)
-              count += 1; // Add each element to the sum
+    public static int countZeros2D(int[][] nums) {
+        int count = 0;
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < nums[i].length; j++) {
+                if (nums[i][j] == 0)
+                    count += 1;
+            }
         }
+        return count;
     }
-    return count;
-  }
 
-  //2. Calculate the sum of a 2d array
-  /*Return the sum of all of the values in the 2D array
-   *Use a nested loop instead of a helper method*/
-  public static int arr2DSum(int[][]nums){
-    int sum = 0;
-    // Use nested loops to go through each element in the 2D array
-    for (int i = 0; i < nums.length; i++){
-        for (int j = 0; j < nums[i].length; j++){
-            sum += nums[i][j]; // Add each element to the sum
+    public static int arr2DSum(int[][] nums) {
+        int sum = 0;
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = 0; j < nums[i].length; j++) {
+                sum += nums[i][j];
+            }
         }
+        return sum;
     }
-    return sum;
-  }
 
-  //3. Modify a given 2D array of integer as follows:
-  //Replace all the negative values:
-  //-When the row number is the same as the column number replace
-  //that negative with the value 1
-  //-All other negatives replace with 0
-  public static void replaceNegative(int[][] vals){
-    for (int row = 0; row < vals.length; row++) {
-        for (int col = 0; col < vals[row].length; col++) {
-            if (vals[row][col] < 0) {
-                if (row == col) {
-                    vals[row][col] = 1;  // Replace with 1 if it's a diagonal element.
-                } else {
-                    vals[row][col] = 0;  // Replace with 0 otherwise.
+    public static void replaceNegative(int[][] vals) {
+        for (int row = 0; row < vals.length; row++) {
+            for (int col = 0; col < vals[row].length; col++) {
+                if (vals[row][col] < 0) {
+                    if (row == col) {
+                        vals[row][col] = 1;
+                    } else {
+                        vals[row][col] = 0;
+                    }
                 }
             }
         }
     }
-  }
 
-  //4. Make a copy of the given 2d array.
-  //When testing : make sure that changing the original does NOT change the copy.
-  //DO NOT use any built in methods that "copy" an array.
-  //You SHOULD write a helper method for this.
-  //If you don't see a good way to do that, you should stop and look at prior methods.
-  public static int[][] copy(int[][] nums){
-    int[][] copiedArray = new int[nums.length][]; // Create an array of rows.
-    for (int row = 0; row < nums.length; row++) {
-        copiedArray[row] = new int[nums[row].length]; // Create each row with appropriate size.
-        for (int col = 0; col < nums[row].length; col++) {
-            copiedArray[row][col] = nums[row][col]; // Copy each element manually.
+    public static int[][] copy(int[][] nums) {
+        int[][] copiedArray = new int[nums.length][];
+        for (int row = 0; row < nums.length; row++) {
+            copiedArray[row] = new int[nums[row].length];
+            for (int col = 0; col < nums[row].length; col++) {
+                copiedArray[row][col] = nums[row][col];
+            }
         }
+        return copiedArray;
     }
-    return copiedArray;
-  }
 
-  //5. Rotate an array by returning a new array with the rows and columns swapped.
-  //   You may assume the array is rectangular and neither rows nor cols is 0.
-  //   e.g. swapRC({{1,2,3},{4,5,6}}) returns {{1,4},{2,5},{3,6}}
-  public static int[][] swapRC(int[][]nums){
-    int rowCount = nums.length;
-    int colCount = nums[0].length;
-    int[][] swapped = new int[colCount][rowCount]; // Create a new array with swapped dimensions
-    for (int i = 0; i < rowCount; i++){
-        for (int j = 0; j < colCount; j++){
-            swapped[j][i] = nums[i][j]; // Swap rows and columns
+    public static int[][] swapRC(int[][] nums) {
+        int rowCount = nums.length;
+        int colCount = nums[0].length;
+        int[][] swapped = new int[colCount][rowCount];
+        for (int i = 0; i < rowCount; i++) {
+            for (int j = 0; j < colCount; j++) {
+                swapped[j][i] = nums[i][j];
+            }
         }
+        return swapped;
     }
-    return swapped;
-  }
 
-  //6. Make an HTML table by putting a table tag around the entire 2d array,
-  //   tr tags around each row, and td tags around each value.
-  //   You may use a helper method
-  //   Note there is no whitespace in the string, it all one line with no spaces/tabs.
-  //   e.g. htmlTable(new int[][]{{1,2},{3}})  returns:
-  // "<table><tr><td>1</td><td>2</td></tr><tr><td>3</td></tr></table>"
-  public static String htmlTable(int[][]nums){
-    String result = "<table>";
-    for (int row = 0; row < nums.length; row++){
-      result += "<tr>";
-      for (int col = 0; col < nums[row].length; col++){
-        result += "<td>" + nums[row][col] + "</td>";
-      }
-      result += "</tr>";
+    public static String htmlTable(int[][] nums) {
+        String result = "<table>";
+        for (int row = 0; row < nums.length; row++) {
+            result += "<tr>";
+            for (int col = 0; col < nums[row].length; col++) {
+                result += "<td>" + nums[row][col] + "</td>";
+            }
+            result += "</tr>";
+        }
+        result += "</table>";
+        return result;
     }
-    result += "</table>";
-    return result;
-  }
 }
