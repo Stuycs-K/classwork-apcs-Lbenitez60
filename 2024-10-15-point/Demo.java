@@ -16,5 +16,8 @@ public class Demo{
     System.out.println( distance(p1,p2));
     System.out.println( Point.distance(p1,p2));
     System.out.println( p1.distanceTo(p2));
+    System.out.println(distance(p1,p2)==Point.distance(p1,p2)&&Point.distance(p1,p2)==p1.distanceTo(p2));
+    System.out.println(distance(p1,p3)==Point.distance(p1,p3)&&Point.distance(p1,p3)==p1.distanceTo(p3));
+    System.out.println(distance(p2,p3)==Point.distance(p2,p3)&&Point.distance(p2,p3)==p2.distanceTo(p3));
   }
 }
