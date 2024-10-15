@@ -9,6 +9,9 @@ public class Point{
   public Point(Point other){
     //COMPLETE THIS SECOND
     //Then write test cases.
+    x = other.x;
+    y = other.y;
+
   }
 
   //Initialize this Point to have the provided values
@@ -27,7 +30,7 @@ public class Point{
   Write this method FOURTH, go to the main and do that one first.
   */
   public double distanceTo(Point other){
-    return 0.0;
+    return Math.sqrt(Math.pow(this.x - other.x, 2) + Math.pow(this.y - other.y, 2));
   }
 
   /*
