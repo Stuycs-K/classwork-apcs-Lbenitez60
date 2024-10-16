@@ -39,9 +39,7 @@ public class Demo{
     System.out.println("\nTesting for Triangle\n");
     Point p7 = new Point(0,0);
     Point p8 = new Point(4,0);
-    double Estimate = Math.sqrt(12.0);
-    System.out.println(Estimate);
-    Point p9 = new Point(2,Estimate);
+    Point p9 = new Point(2,Math.sqrt(12.0));
     System.out.println(p7 + ", " + p8 + ", " + p9);
     System.out.println(distance(p7,p8));
     System.out.println(distance(p7,p9));
