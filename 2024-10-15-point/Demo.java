@@ -44,5 +44,6 @@ public class Demo{
     System.out.println(distance(p7,p8));
     System.out.println(distance(p7,p9));
     System.out.println(distance(p8,p9));
+    System.out.println(distance(p7,p8)==distance(p7,p9)&&distance(p7,p9)==distance(p8,p9));
   }
 }
