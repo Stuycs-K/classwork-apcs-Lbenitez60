@@ -36,5 +36,13 @@ public class Demo{
       System.out.println(distance(p4,p6)==Point.distance(p4,p6)&&Point.distance(p4,p6)==p4.distanceTo(p6));
       System.out.println(distance(p5,p6)==Point.distance(p5,p6)&&Point.distance(p5,p6)==p5.distanceTo(p6));
     }
+    System.out.println("\nTesting for Triangle\n");
+    Point p7 = new Point(0,0);
+    Point p8 = new Point(4,0);
+    Point p9 = new Point(2,Math.sqrt(12.0));
+    System.out.println(p7 + ", " + p8 + ", " + p9);
+    System.out.println(distance(p7,p8));
+    System.out.println(distance(p7,p9));
+    System.out.println(distance(p8,p9));
   }
 }
