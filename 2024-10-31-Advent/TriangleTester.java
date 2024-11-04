@@ -1,9 +1,11 @@
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
+import java.util.ArrayList;
 public class TriangleTester{
   public static void main(String[] args){
     System.out.println(countTrianglesA("inputTri.txt"));
+    System.out.println(countTrianglesB("inputTri.txt"));
   }
   public static int countTrianglesA(String filename){
     try{
@@ -18,6 +20,22 @@ public class TriangleTester{
           count++;
       }
       return count;
+    } catch (FileNotFoundException ex) {
+      //File not found what should you do?
+      System.out.println("File not found");
+      return 0;
+    }
+  }
+  public static int countTrianglesB(String filename){
+    try{
+      File file = new File(filename);
+      Scanner input = new Scanner(file);
+      ArrayList<Integer> numlist = new ArrayList<Integer>();
+      while(input.hasNextInt()){
+        numlist.add(input.nextInt());
+      }
+      System.out.println(numlist);
+      return 0;
     } catch (FileNotFoundException ex) {
       //File not found what should you do?
       System.out.println("File not found");
