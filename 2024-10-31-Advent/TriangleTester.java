@@ -35,6 +35,9 @@ public class TriangleTester{
         numlist.add(input.nextInt());
       }
       System.out.println(numlist);
+      for (int i = 0; i < numlist.size()/9; i++){
+        
+      }
       return 0;
     } catch (FileNotFoundException ex) {
       //File not found what should you do?
