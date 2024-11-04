@@ -19,12 +19,15 @@ public class ReadFile{
         System.out.println(input.nextLine());
       input = new Scanner(file);
       while (input.hasNextLine()){
-        input.nextLine();
         System.out.println(input.nextLine());
+        if(input.hasNextLine())input.nextLine();
       }
       input = new Scanner(file);
-      while (input.hasNextLine()&&input.nextLine().indexOf("{")>0)
-        System.out.println(input.nextLine());
+      while (input.hasNextLine()){
+        String placeholder = input.nextLine();
+        if(placeholder.indexOf("{")>-1)
+          System.out.println(placeholder);
+      }
       input.close();//releases the file from your program
 
     } catch (FileNotFoundException ex) {
