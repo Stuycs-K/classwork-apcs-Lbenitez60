@@ -14,22 +14,36 @@ public class ReadFile{
     try {
       File file = new File("ReadFile.java");//1
       Scanner input = new Scanner(file);
-      //CODE THAT SCANS THE FILE.
       while (input.hasNextLine())
         System.out.println(input.nextLine());
-      input = new Scanner(file);
+      input.close();
+    } catch (FileNotFoundException ex) {
+      //File not found what should you do?
+      System.out.println("File not found");
+      return; //you can return from a void function just don't put a value.
+    }
+    try {
+      File file = new File("ReadFile.java");//1
+      Scanner input = new Scanner(file);
       while (input.hasNextLine()){
         System.out.println(input.nextLine());
         if(input.hasNextLine())input.nextLine();
       }
-      input = new Scanner(file);
+      input.close();
+    } catch (FileNotFoundException ex) {
+      //File not found what should you do?
+      System.out.println("File not found");
+      return; //you can return from a void function just don't put a value.
+    }
+    try {
+      File file = new File("ReadFile.java");//1
+      Scanner input = new Scanner(file);
       while (input.hasNextLine()){
         String placeholder = input.nextLine();
         if(placeholder.indexOf("{")>-1)
           System.out.println(placeholder);
-      }
-      input.close();//releases the file from your program
-
+        }
+        input.close();
     } catch (FileNotFoundException ex) {
       //File not found what should you do?
       System.out.println("File not found");
