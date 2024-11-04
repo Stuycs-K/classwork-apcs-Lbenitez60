@@ -3,14 +3,14 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 public class TriangleTester{
   public static void main(String[] args){
-    countTrianglesA("inputTri.txt");
+    System.out.println(countTrianglesA("inputTri.txt"));
   }
   public static int countTrianglesA(String filename){
     try{
       File file = new File(filename);
       Scanner input = new Scanner(file);
       int count = 0;
-      while (input.hasNextLine()){
+      while (input.hasNextInt()){
         int a = input.nextInt();
         int b = input.nextInt();
         int c = input.nextInt();
