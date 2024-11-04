@@ -17,6 +17,14 @@ public class ReadFile{
       //CODE THAT SCANS THE FILE.
       while (input.hasNextLine())
         System.out.println(input.nextLine());
+      input = new Scanner(file);
+      while (input.hasNextLine()){
+        input.nextLine();
+        System.out.println(input.nextLine());
+      }
+      input = new Scanner(file);
+      while (input.hasNextLine()&&input.nextLine().indexOf("{")>0)
+        System.out.println(input.nextLine());
       input.close();//releases the file from your program
 
     } catch (FileNotFoundException ex) {
