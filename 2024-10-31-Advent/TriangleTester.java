@@ -34,11 +34,15 @@ public class TriangleTester{
       while(input.hasNextInt()){
         numlist.add(input.nextInt());
       }
+      int count = 0;
       System.out.println(numlist);
-      for (int i = 0; i < numlist.size()/9; i++){
-        
+      for (int i = 0; i < numlist.size(); i+=9){
+        for (int j = i; j < i + 3; j ++){
+          if (triangleTest(numlist.get(j),numlist.get(j+3),numlist.get(j+6)))
+            count++;
+        }
       }
-      return 0;
+      return count;
     } catch (FileNotFoundException ex) {
       //File not found what should you do?
       System.out.println("File not found");
