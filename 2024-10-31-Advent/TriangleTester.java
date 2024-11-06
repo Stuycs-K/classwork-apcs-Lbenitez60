@@ -35,7 +35,6 @@ public class TriangleTester{
         numlist.add(input.nextInt());
       }
       int count = 0;
-      System.out.println(numlist);
       for (int i = 0; i < numlist.size(); i+=9){
         for (int j = i; j < i + 3; j ++){
           if (triangleTest(numlist.get(j),numlist.get(j+3),numlist.get(j+6)))
