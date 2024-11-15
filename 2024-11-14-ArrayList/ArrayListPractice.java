@@ -24,12 +24,15 @@ public class ArrayListPractice{
     }
     return result;
   }
-  public static ArrayList<String> mixLists( ArrayList<String> a,  ArrayList<String> b){
-    ArrayList<String> result = new ArrayList<String>(a.size()+b.size());
-    for (int i = 0; i < a.size() && i < b.size; i++){
-      result.add(a.get(i)).add(b.get(i));
+  public static ArrayList<String> mixLists(ArrayList<String> a, ArrayList<String> b) {
+    ArrayList<String> result = new ArrayList<>();
+    int maxLength = Math.max(a.size(), b.size());
+    for (int i = 0; i < maxLength; i++) {
+        if (i < a.size())
+            result.add(a.get(i));
+        if (i < b.size())
+            result.add(b.get(i));
     }
-    //add extra values;
     return result;
   }
 }
