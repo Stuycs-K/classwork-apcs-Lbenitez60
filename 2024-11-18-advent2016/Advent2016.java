@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.io.FileNotFoundException;
 public class Advent2016{
   public static void main (String[] args){
-    read("puzzleInput.txt");
+    System.out.println(day1());
   }
   public static ArrayList<String> read(String filename){
     try {
@@ -21,5 +21,9 @@ public class Advent2016{
       System.out.println("File not found");
       return new ArrayList<String>();
     }
+  }
+  public static int day1(){
+    ArrayList<String> steps = read("puzzleinput.txt");
+    return 0;
   }
 }
