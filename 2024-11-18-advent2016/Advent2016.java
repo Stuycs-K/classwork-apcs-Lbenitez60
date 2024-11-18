@@ -24,6 +24,9 @@ public class Advent2016{
   }
   public static int day1(){
     ArrayList<String> steps = read("puzzleinput.txt");
+    for (int i = 0; i < steps.size(); i ++){
+      
+    }
     return 0;
   }
 }
