@@ -7,6 +7,7 @@ public class Advent2016{
   public static void main (String[] args){
     System.out.println("Day1.1: "+day1(0));
     System.out.println("Day1.2: "+day1(1));
+    System.out.println("Day2.1: "+day2(0));
   }
   public static ArrayList<String> read(String filename){
     try {
@@ -27,8 +28,25 @@ public class Advent2016{
 
   public static int day2(int p){
     int[][] keypad = new int[][]{{1,2,3},{4,5,6},{7,8,9}};
-    ArrayList<String> steps = read("puzzleInput.txt");
-    return 0;
+    String[] steps = new String[5];
+    try{
+      File file = new File("d2input.txt");
+      Scanner input = new Scanner(file);
+      for (int i = 0; input.hasNextLine(); i++){
+        steps[i] = input.nextLine();
+      }
+      int[] cell = new int[]{1,1};
+      String code = "";
+      for (int i = 0; i < 5; i ++){
+        for(int j = 0; j < steps[i].length(); i++){
+          
+        }
+      }
+      return 0;
+    }catch(FileNotFoundException ex){
+      System.out.println("File not found");
+      return 0;
+    }
   }
 
 
