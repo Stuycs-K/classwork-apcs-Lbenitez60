@@ -23,10 +23,11 @@ public class Advent2016{
     }
   }
   public static int day1(){
-    ArrayList<String> steps = read("puzzleinput.txt");
+    ArrayList<String> steps = read("puzzleInput.txt");
     for (int i = 0; i < steps.size(); i ++){
-      
+      steps.set(i,steps.get(i).substring(0,2));
     }
+    System.out.println(steps);
     return 0;
   }
 }
