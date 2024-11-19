@@ -28,6 +28,18 @@ public class Advent2016{
       steps.set(i,steps.get(i).substring(0,2));
     }
     System.out.println(steps);
+    int x=0,y=0,dir=0;
+    int[][]offset={{0,1},{1,0},{0,-1},{-1,0}};
+    for (int i=0; i < steps.size();i++){
+      if (steps.get(i).substring(0,1).equals("L"))
+        dir--;
+      if (steps.get(i).substring(0,1).equals("R"))
+        dir++;
+      dir %= 4;
+      dir += 4;
+      dir %= 4;
+      int dis = parseInt(steps.get(i).substring(1));
+    }
     return 0;
   }
 }
