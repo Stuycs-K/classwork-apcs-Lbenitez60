@@ -38,8 +38,11 @@ public class Advent2016{
       dir %= 4;
       dir += 4;
       dir %= 4;
-      int dis = parseInt(steps.get(i).substring(1));
+      int dis = Integer.parseInt(steps.get(i).substring(1));
+      x += offset[dir][0] * dis;
+      y += offset[dir][1] * dis;
     }
+    System.out.println(x+","+y);
     return 0;
   }
 }
