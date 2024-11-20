@@ -8,6 +8,7 @@ public class Advent2016{
     System.out.println("Day1.1: "+day1(0));
     System.out.println("Day1.2: "+day1(1));
     System.out.println("Day2.1: "+day2(0));
+    System.out.println("Day3.1: "+day3(0));
   }
   public static ArrayList<String> read(String filename){
     try {
@@ -25,6 +26,52 @@ public class Advent2016{
       return new ArrayList<String>();
     }
   }
+
+
+  public static int day3(int p){
+    try {
+      File file = new File("d3input.txt");
+      Scanner input = new Scanner(file);
+      String[] rooms = new String[1000];
+      int count = 0;
+      for (int i = 0; input.hasNextLine(); i++){
+        rooms[i] = input.nextLine();
+        count++;
+      }
+      for (int i = 0; i < count; i++){
+        String Sroom = rooms[i];
+        String[] room = Sroom.split("-");
+        String encrypt = "";
+        for (int j = 0; j < room.length-1; j++){
+          encrypt+=room[j];
+        }
+        int ID = Integer.parseInt(room[room.length-1].substring(0,room[room.length-1].indexOf("[")));
+        String checksum = room[room.length-1].substring(room[room.length-1].indexOf("[")+1,room[room.length-1].indexOf("]"));
+        // System.out.println(encrypt);
+        // System.out.println(ID);
+        System.out.println(checksum);
+
+      }
+      return 0;
+    } catch (FileNotFoundException ex) {
+      System.out.println("File not found");
+      return 0;
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   public static int day2(int p){
     int[][] keypad = new int[][]{{1,2,3},{4,5,6},{7,8,9}};
