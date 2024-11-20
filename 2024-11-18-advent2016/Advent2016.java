@@ -30,7 +30,7 @@ public class Advent2016{
 
   public static int day4(int p){
     try {
-      File file = new File("d3input.txt");
+      File file = new File("d4input.txt");
       Scanner input = new Scanner(file);
       String[] rooms = new String[1000];
       int count = 0;
@@ -49,6 +49,7 @@ public class Advent2016{
         String checksum = room[room.length-1].substring(room[room.length-1].indexOf("[")+1,room[room.length-1].indexOf("]"));
         int[] ccounter = new int[encrypt.length()];
         String[] clist = new String[encrypt.length()];
+        System.out.println(encrypt);
         for (int j = 0; j<encrypt.length()-1; j++){//per encrypt char
           int ccount = 0;
           String c = encrypt.substring(j,j+1);//starts with c at i 0
@@ -63,14 +64,17 @@ public class Advent2016{
             clist[j]=c;
           }
         }
-        System.out.println(Arrays.toString(ccounter));
-        System.out.println(Arrays.toString(clist));//per room
-        int[] cccounter = new int[ccounter.length];
-        String[] cclist = new String[clist.length];
+        ArrayList<Integer> charcount = new ArrayList<Integer>(ccounter.length);
+        ArrayList<String> charlist = new ArrayList<String>(clist.length);
         for (int j = 0; j < ccounter.length; j++){
-          if(ccounter)
+          if(ccounter[j]!=0){
+            charcount.add(ccounter[j]);
+            charlist.add(clist[j]);
+          }
         }
-      }
+        System.out.println(charcount);
+        System.out.println(charlist);
+      }//end of per room
       return 0;
     } catch (FileNotFoundException ex) {
       System.out.println("File not found");
