@@ -47,9 +47,16 @@ public class Advent2016{
         }
         int ID = Integer.parseInt(room[room.length-1].substring(0,room[room.length-1].indexOf("[")));
         String checksum = room[room.length-1].substring(room[room.length-1].indexOf("[")+1,room[room.length-1].indexOf("]"));
-        // System.out.println(encrypt);
-        // System.out.println(ID);
-        System.out.println(checksum);
+        for (int j = 0; j<encrypt.length()-1; j++){
+          int ccount = 0;
+          String c = encrypt.substring(j,j+1);
+          String e = encrypt.substring(j+1);
+          boolean checked = encrypt.substring(0,j).contains(c);
+          for (int k = 0; k < e.length();k++){
+
+          }
+
+        }
 
       }
       return 0;
