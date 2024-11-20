@@ -8,7 +8,7 @@ public class Advent2016{
     System.out.println("Day1.1: "+day1(0));
     System.out.println("Day1.2: "+day1(1));
     System.out.println("Day2.1: "+day2(0));
-    System.out.println("Day3.1: "+day3(0));
+    System.out.println("Day4.1: "+day4(0));
   }
   public static ArrayList<String> read(String filename){
     try {
@@ -28,7 +28,7 @@ public class Advent2016{
   }
 
 
-  public static int day3(int p){
+  public static int day4(int p){
     try {
       File file = new File("d3input.txt");
       Scanner input = new Scanner(file);
