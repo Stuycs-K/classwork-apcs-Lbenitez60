@@ -38,7 +38,7 @@ public class Advent2016{
         rooms[i] = input.nextLine();
         count++;
       }
-      for (int i = 0; i < count; i++){
+      for (int i = 0; i < count; i++){//per room
         String Sroom = rooms[i];
         String[] room = Sroom.split("-");
         String encrypt = "";
@@ -47,17 +47,29 @@ public class Advent2016{
         }
         int ID = Integer.parseInt(room[room.length-1].substring(0,room[room.length-1].indexOf("[")));
         String checksum = room[room.length-1].substring(room[room.length-1].indexOf("[")+1,room[room.length-1].indexOf("]"));
-        for (int j = 0; j<encrypt.length()-1; j++){
+        int[] ccounter = new int[encrypt.length()];
+        String[] clist = new String[encrypt.length()];
+        for (int j = 0; j<encrypt.length()-1; j++){//per encrypt char
           int ccount = 0;
-          String c = encrypt.substring(j,j+1);
-          String e = encrypt.substring(j+1);
-          boolean checked = encrypt.substring(0,j).contains(c);
-          for (int k = 0; k < e.length();k++){
-
+          String c = encrypt.substring(j,j+1);//starts with c at i 0
+          String e = encrypt.substring(j+1);//everything after c
+          boolean checked = encrypt.substring(0,j).contains(c);//everything beore c
+          for (int k = j; k < e.length();k++){//counting
+            if(e.substring(k,k+1).equals(c))
+              ccount++;
           }
-
+          if(!checked){
+            ccounter[j]=ccount;
+            clist[j]=c;
+          }
         }
-
+        System.out.println(Arrays.toString(ccounter));
+        System.out.println(Arrays.toString(clist));//per room
+        int[] cccounter = new int[ccounter.length];
+        String[] cclist = new String[clist.length];
+        for (int j = 0; j < ccounter.length; j++){
+          if(ccounter)
+        }
       }
       return 0;
     } catch (FileNotFoundException ex) {
