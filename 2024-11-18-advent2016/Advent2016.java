@@ -35,14 +35,27 @@ public class Advent2016{
       for (int i = 0; input.hasNextLine(); i++){
         steps[i] = input.nextLine();
       }
-      int[] cell = new int[]{1,1};
+      int[] cell = new int[]{1,1};//0-2:up-down,,,,0-2:left-right
       String code = "";
       for (int i = 0; i < 5; i ++){
-        for(int j = 0; j < steps[i].length(); i++){
-          
+        for(int j = 0; j < steps[i].length(); j++){
+          String x = steps[i].substring(j,j+1);
+          if (x.equals("U"))
+            cell[0]--;
+            if (cell[0]<0) cell[0]=0;
+          if (x.equals("D"))
+            cell[0]++;
+            if (cell[0]>2) cell[0]=2;
+          if (x.equals("L"))
+            cell[1]--;
+            if (cell[1]<0) cell[1]=0;
+          if (x.equals("R"))
+            cell[1]++;
+            if (cell[1]>2) cell[1]=2;
         }
+        code+=keypad[cell[0]][cell[1]];
       }
-      return 0;
+      return Integer.parseInt(code);
     }catch(FileNotFoundException ex){
       System.out.println("File not found");
       return 0;
