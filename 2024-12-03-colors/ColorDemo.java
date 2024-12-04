@@ -1,3 +1,4 @@
+//wasnt really able to test on mac, and my virtual machine stopped working :(
 public class ColorDemo {
     // Constants for terminal control
     public static final String CLEAR_SCREEN = "\u001b[2J";
