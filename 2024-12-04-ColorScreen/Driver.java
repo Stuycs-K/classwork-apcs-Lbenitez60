@@ -43,7 +43,14 @@ public class Driver {
         }
     }
 
-
+    // Draw a horizontal separator
+    public static void drawSeparator() {
+        Text.color(Text.YELLOW, Text.background(Text.BLACK), Text.BRIGHT);
+        for (int col = 2; col <= 79; col++) {
+            Text.go(3, col);
+            System.out.print("-");
+        }
+    }
 
 
 
