@@ -24,7 +24,24 @@ public class Driver {
         }
     }
 
-
+    // Display random integers with specific colors
+    public static void displayRandomNumbers(int[] numbers) {
+        int spacing = 80 / (numbers.length + 1); // Calculate spacing for even distribution
+        Text.color(Text.WHITE, Text.background(Text.BLACK)); // Reset colors
+        for (int i = 0; i < numbers.length; i++) {
+            int col = spacing * (i + 1); // Determine position
+            Text.go(2, col);
+            // Choose color based on the value
+            if (numbers[i] < 25) {
+                Text.color(Text.BRIGHT, Text.RED);
+            } else if (numbers[i] > 75) {
+                Text.color(Text.BRIGHT, Text.GREEN);
+            } else {
+                Text.color(Text.WHITE);
+            }
+            System.out.print(numbers[i]);
+        }
+    }
 
 
 
