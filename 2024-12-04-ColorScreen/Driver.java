@@ -55,6 +55,20 @@ public class Driver {
 
 
     public static void main(String[] args) {
+        System.out.print(Text.CLEAR_SCREEN); // Clear the screen
+        System.out.print(Text.HIDE_CURSOR); // Hide the cursor
 
+        drawBorder(); // Step 1: Draw the border
+
+        // Generate and display random numbers
+        Random rand = new Random();
+        int[] numbers = {rand.nextInt(100), rand.nextInt(100), rand.nextInt(100)};
+        displayRandomNumbers(numbers);
+
+        drawSeparator(); // Step 2: Draw a horizontal separator
+
+
+        Text.go(31, 1); // Move the cursor to line 31
+        System.out.println(Text.RESET); // Reset terminal settings
     }
 }
