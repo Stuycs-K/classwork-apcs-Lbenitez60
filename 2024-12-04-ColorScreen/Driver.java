@@ -52,7 +52,12 @@ public class Driver {
         }
     }
 
-
+    // Draw something in the middle of the screen
+    public static void drawMiddleArt() {
+        Text.color(Text.MAGENTA, Text.background(Text.CYAN), Text.BRIGHT);
+        Text.go(15, 35); // Roughly the middle of the screen
+        System.out.print("~* WELCOME *~");
+    }
 
     public static void main(String[] args) {
         System.out.print(Text.CLEAR_SCREEN); // Clear the screen
@@ -67,6 +72,7 @@ public class Driver {
 
         drawSeparator(); // Step 2: Draw a horizontal separator
 
+        drawMiddleArt(); // Extra: Draw something in the middle
 
         Text.go(31, 1); // Move the cursor to line 31
         System.out.println(Text.RESET); // Reset terminal settings
