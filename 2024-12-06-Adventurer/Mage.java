@@ -1,19 +1,26 @@
 public class Mage extends Adventurer{
+  private int mana,maxMana;
+
   public Mage(String name){
       super(name, 10);
   }
   public Mage(String name, int hp){
       super(name,hp);
   }
+  /*
+    all adventurers must have a custom special
+    consumable resource (mana/rage/money/witts etc)
+  */
+  //give it a short name (fewer than 13 characters)
   public String getSpecialName(){
-    return "";
+    return "mana";
   }
   //accessor methods
   public int getSpecial(){
-    return 0;
+    return mana;
   }
   public void setSpecial(int n){
-
+    mana=n;
   }
   public int getSpecialMax(){
     return 0;
