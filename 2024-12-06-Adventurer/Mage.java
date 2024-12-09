@@ -47,7 +47,12 @@ public class Mage extends Adventurer{
 
   //heall or buff the target adventurer
   public String support(Adventurer other){
-
+    if(getSpecial()<1){
+      return "not enough "+getSpecialName();
+    }
+    other.setHP(other.getHP()+(getSpecial()/2));
+    setSpecial(getSpecial()/2);
+    return "succesful attack!";
   }
 
   //heall or buff self
