@@ -3,9 +3,11 @@ public class Mage extends Adventurer{
 
   public Mage(String name){
       super(name, 10);
+      maxMana = 100;
   }
   public Mage(String name, int hp){
       super(name,hp);
+      maxMana = 100;
   }
   /*
     all adventurers must have a custom special
@@ -35,12 +37,17 @@ public class Mage extends Adventurer{
   */
   //hurt or hinder the target adventurer
   public String attack(Adventurer other){
-    return "";
+    if(getSpecial()<1){
+      return "not enough "+getSpecialName();
+    }
+    other.applyDamage(getSpecial()/2);
+    setSpecial(getSpecial()/2);
+    return "succesful attack!";
   }
 
   //heall or buff the target adventurer
   public String support(Adventurer other){
-    return "";
+
   }
 
   //heall or buff self
