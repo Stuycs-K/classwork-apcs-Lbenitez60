@@ -1,6 +1,6 @@
 public class CodeWarrior extends Adventurer{
-  int caffeine, caffeineMax;
-  String preferredLanguage;
+  private int caffeine, caffeineMax;
+  private String preferredLanguage;
 
   /*the other constructors ultimately call the constructor
     with all parameters.*/
