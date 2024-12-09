@@ -57,11 +57,21 @@ public class Mage extends Adventurer{
 
   //heall or buff self
   public String support(){
-    return "";
+    if(getSpecial()<1){
+      return "not enough "+getSpecialName();
+    }
+    setHP(getHP()+(getSpecial()/2));
+    setSpecial(getSpecial()/2);
+    return "succesful attack!";
   }
 
   //hurt or hinder the target adventurer, consume some special resource
   public String specialAttack(Adventurer other){
-    return "";
+    if(getSpecial()<1){
+      return "not enough "+getSpecialName();
+    }
+    other.applyDamage(getSpecial());
+    setSpecial(getSpecial());
+    return "succesful attack!";
   }
 }
