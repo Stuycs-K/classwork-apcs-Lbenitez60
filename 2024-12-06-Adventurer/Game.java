@@ -21,9 +21,12 @@ public class Game{
         System.out.println("Coward!");
         return;
       }
-      if(type.equals("a")){}
-      if(type.equals("sp")){}
-      if(type.equals("su")){}
+      else if(type.equals("a")){}
+      else if(type.equals("sp")){}
+      else if(type.equals("su")){}
+      else{
+        System.out.println("invalid input");
+      }
     }
   }
 }
