@@ -13,7 +13,7 @@ public class Game{
     System.out.println("Game started!");
     System.out.println("-------------");
     String[] actions = new String[] {"a","sp","su"};
-    String[] actionnames = new String[] {"attack","special","support"};
+    String[] actionnames = new String[] {"attacked","special attacked","supported"};
     while(true){
       System.out.println(player.getName()+", "+player.getHP()+"/"+player.getmaxHP()+" HP , "+ player.getSpecial()+"/"+player.getSpecialMax()+" "+player.getSpecialName());
       System.out.println(enemy.getName()+", "+enemy.getHP()+"/"+enemy.getmaxHP()+" HP , "+ enemy.getSpecial()+"/"+enemy.getSpecialMax()+" "+enemy.getSpecialName());
@@ -24,23 +24,39 @@ public class Game{
         return;
       }
       else if(type.equals("a")){
-        System.out.println("You attacked");
-        player.attack(enemy);
+        System.out.println(player.attack(enemy));
       }
       else if(type.equals("sp")){
-        player.specialAttack(enemy);
+        System.out.println(player.specialAttack(enemy));
       }
       else if(type.equals("su")){
-        player.support();
+        System.out.println(player.support());
       }
       else{
         System.out.println("invalid input");
+        continue;
+      }
+      if (enemy.getHP()<=0){
+        System.out.println("You won!");
+        return;
+      }
+      int enemyattackindex = (int)(Math.random()*3);
+      if(enemyattackindex==0){
+        enemy.attack(player);
+        System.out.println("enemy "+ actionnames[enemyattackindex]);
+      }
+      if(enemyattackindex==1){
+        enemy.specialAttack(player);
+        System.out.println("enemy "+ actionnames[enemyattackindex]);
+      }
+      if(enemyattackindex==2){
+        enemy.support();
+        System.out.println("enemy "+ actionnames[enemyattackindex]);
       }
       if (player.getHP()<=0){
         System.out.println("You have been defeated!");
         return;
       }
-
     }
   }
 }

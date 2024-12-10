@@ -5,9 +5,13 @@ public class Mage extends Adventurer{
       super(name, 10);
       maxMana = 100;
   }
-  public Mage(String name, int hp){
+  public Mage(String name, int hp, int Mana){
       super(name,hp);
+      mana=Mana;
       maxMana = 100;
+  }
+  public Mage(String name, int hp){
+    this(name,hp,100);
   }
   /*
     all adventurers must have a custom special
@@ -71,7 +75,7 @@ public class Mage extends Adventurer{
       return "not enough "+getSpecialName();
     }
     other.applyDamage(getSpecial());
-    setSpecial(getSpecial());
+    setSpecial(getSpecial()-10);
     return "You special attacked!";
   }
 }
