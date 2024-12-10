@@ -12,6 +12,8 @@ public class Game{
     //loop
     System.out.println("Game started!");
     System.out.println("-------------");
+    String[] actions = new String[] {"a","sp","su"};
+    String[] actionnames = new String[] {"attack","special","support"};
     while(true){
       System.out.println(player.getName()+", "+player.getHP()+"/"+player.getmaxHP()+" HP , "+ player.getSpecial()+"/"+player.getSpecialMax()+" "+player.getSpecialName());
       System.out.println(enemy.getName()+", "+enemy.getHP()+"/"+enemy.getmaxHP()+" HP , "+ enemy.getSpecial()+"/"+enemy.getSpecialMax()+" "+enemy.getSpecialName());
@@ -21,12 +23,24 @@ public class Game{
         System.out.println("Coward!");
         return;
       }
-      else if(type.equals("a")){}
-      else if(type.equals("sp")){}
-      else if(type.equals("su")){}
+      else if(type.equals("a")){
+        System.out.println("You attacked");
+        player.attack(enemy);
+      }
+      else if(type.equals("sp")){
+        player.specialAttack(enemy);
+      }
+      else if(type.equals("su")){
+        player.support();
+      }
       else{
         System.out.println("invalid input");
       }
+      if (player.getHP()<=0){
+        System.out.println("You have been defeated!");
+        return;
+      }
+
     }
   }
 }
