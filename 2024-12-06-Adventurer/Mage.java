@@ -42,7 +42,7 @@ public class Mage extends Adventurer{
     }
     other.applyDamage(getSpecial()/2);
     setSpecial(getSpecial()/2);
-    return "succesful attack!";
+    return "You attacked";
   }
 
   //heall or buff the target adventurer
@@ -62,7 +62,7 @@ public class Mage extends Adventurer{
     }
     setHP(getHP()+(getSpecial()/2));
     setSpecial(getSpecial()/2);
-    return "succesful attack!";
+    return "You supported!";
   }
 
   //hurt or hinder the target adventurer, consume some special resource
@@ -72,6 +72,6 @@ public class Mage extends Adventurer{
     }
     other.applyDamage(getSpecial());
     setSpecial(getSpecial());
-    return "succesful attack!";
+    return "You special attacked!";
   }
 }
